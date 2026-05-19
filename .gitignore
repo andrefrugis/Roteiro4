@@ -1,0 +1,18 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Builds
+*.zip
+*.xpi
+web-ext-artifacts/
+
+# Node (caso usem web-ext)
+node_modules/
+npm-debug.log*
+yarn-debug.log*

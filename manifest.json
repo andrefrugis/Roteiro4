@@ -1,0 +1,53 @@
+{
+  "manifest_version": 2,
+  "name": "Privacy Extension",
+  "version": "1.0.0",
+  "description": "Detecta rastreamento, fingerprinting, hijacking e calcula um Privacy Score para a página atual.",
+
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "cookies",
+    "storage",
+    "webRequest",
+    "webNavigation",
+    "<all_urls>"
+  ],
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+
+  "web_accessible_resources": ["inject.js"],
+
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "Privacy Extension",
+    "default_icon": {
+      "48": "icons/icon-48.svg",
+      "96": "icons/icon-96.svg"
+    }
+  },
+
+  "icons": {
+    "48": "icons/icon-48.svg",
+    "96": "icons/icon-96.svg"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "privacy-extension@insper.local",
+      "strict_min_version": "115.0"
+    }
+  }
+}

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Privacy Extension</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="pg-header">
+    <div class="pg-logo">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2 4 5v6c0 5 3.5 9.4 8 11 4.5-1.6 8-6 8-11V5l-8-3z"
+              fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linejoin="round"/>
+      </svg>
+      <span>Privacy Extension</span>
+    </div>
+    <button id="refresh" title="Recarregar" class="pg-icon-btn" aria-label="Recarregar">⟳</button>
+  </header>
+
+  <section class="pg-score" id="score-card">
+    <div class="pg-score-circle" id="score-circle">
+      <span id="score-value">--</span>
+      <small id="score-grade">·</small>
+    </div>
+    <div class="pg-score-meta">
+      <div id="score-label" class="pg-score-label">Coletando dados...</div>
+      <div id="page-domain" class="pg-domain">—</div>
+    </div>
+  </section>
+
+  <nav class="pg-tabs" role="tablist">
+    <button class="pg-tab active" data-tab="overview">Visão geral</button>
+    <button class="pg-tab" data-tab="thirdparty">Terceiros</button>
+    <button class="pg-tab" data-tab="cookies">Cookies</button>
+    <button class="pg-tab" data-tab="fingerprint">Fingerprint</button>
+    <button class="pg-tab" data-tab="storage">Storage</button>
+    <button class="pg-tab" data-tab="hijack">Hijacking</button>
+  </nav>
+
+  <main class="pg-content">
+    <section class="pg-panel active" id="panel-overview">
+      <div class="pg-grid">
+        <div class="pg-stat"><b id="ov-reqs">0</b><span>Requisições</span></div>
+        <div class="pg-stat"><b id="ov-third">0</b><span>Domínios 3ª</span></div>
+        <div class="pg-stat"><b id="ov-cookies">0</b><span>Cookies</span></div>
+        <div class="pg-stat"><b id="ov-fp">0</b><span>Fingerprint</span></div>
+      </div>
+      <h3>Penalidades aplicadas</h3>
+      <ul id="ov-breakdown" class="pg-list"></ul>
+    </section>
+
+    <section class="pg-panel" id="panel-thirdparty">
+      <div class="pg-subtitle">Domínios contactados que não pertencem ao site</div>
+      <ul id="tp-list" class="pg-list"></ul>
+    </section>
+
+    <section class="pg-panel" id="panel-cookies">
+      <div class="pg-grid">
+        <div class="pg-stat"><b id="ck-fp">0</b><span>1ª parte</span></div>
+        <div class="pg-stat"><b id="ck-tp">0</b><span>3ª parte</span></div>
+        <div class="pg-stat"><b id="ck-ss">0</b><span>Sessão</span></div>
+        <div class="pg-stat"><b id="ck-ps">0</b><span>Persistentes</span></div>
+      </div>
+      <h3>Supercookies suspeitos</h3>
+      <ul id="ck-super" class="pg-list"></ul>
+      <h3>Lista de cookies</h3>
+      <ul id="ck-list" class="pg-list pg-mono"></ul>
+    </section>
+
+    <section class="pg-panel" id="panel-fingerprint">
+      <div class="pg-grid">
+        <div class="pg-stat"><b id="fp-canvas">0</b><span>Canvas</span></div>
+        <div class="pg-stat"><b id="fp-webgl">0</b><span>WebGL</span></div>
+        <div class="pg-stat"><b id="fp-audio">0</b><span>Audio</span></div>
+      </div>
+      <h3>Eventos detectados</h3>
+      <ul id="fp-events" class="pg-list pg-mono"></ul>
+    </section>
+
+    <section class="pg-panel" id="panel-storage">
+      <h3>localStorage</h3>
+      <ul id="st-local" class="pg-list pg-mono"></ul>
+      <h3>sessionStorage</h3>
+      <ul id="st-session" class="pg-list pg-mono"></ul>
+      <h3>IndexedDB</h3>
+      <ul id="st-idb" class="pg-list pg-mono"></ul>
+    </section>
+
+    <section class="pg-panel" id="panel-hijack">
+      <h3>Scripts suspeitos</h3>
+      <ul id="hj-scripts" class="pg-list pg-mono"></ul>
+      <h3>Redirecionamentos cross-origin</h3>
+      <ul id="hj-redirs" class="pg-list pg-mono"></ul>
+      <h3>Cookie syncing</h3>
+      <ul id="hj-sync" class="pg-list pg-mono"></ul>
+    </section>
+  </main>
+
+  <footer class="pg-footer">
+    <span>Privacy Extension · Roteiro 4</span>
+    <button id="reset" class="pg-link-btn">Limpar aba</button>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
