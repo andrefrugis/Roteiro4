@@ -31,7 +31,7 @@ Trabalho desenvolvido para o **Roteiro 4** da disciplina.
 ## Instalação
 
 ```bash
-git clone https://github.com/<andrefrugis>/Roteiro4.git
+git clone https://github.com/andrefrugis/Roteiro4.git
 ```
 
 1. Abra o Firefox em `about:debugging#/runtime/this-firefox`.
